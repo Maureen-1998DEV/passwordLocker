@@ -9,6 +9,10 @@ while menu != '1'or menu != '2':
        software =input("Enter your software name:")
        username = input("Enter your username:")
        password = input("Enter your password:")
+       file = open("passwordData.txt","a")
+       file.write(software+username+password)
+       file.close()
+
 
     if menu == '2':
         print("display passwords")
