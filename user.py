@@ -4,10 +4,11 @@ class User:
     '''
     user_lock = [] #empty passwordlocker
 
-    def __init__(self, username,password):
+    def __init__(self, software,username,password):
 
         self.username = username
         self.password = password
+        self.software = software
 
     def save_user(self):
         '''
@@ -18,9 +19,9 @@ class User:
         User.user_lock.remove(self)
 
     @classmethod
-    def find_by_password(cls, password):
+    def find_by_software(cls, software):
        for user in cls.user_lock:
-           if user.password == password:
+           if user.software == software:
                return user
     
 
