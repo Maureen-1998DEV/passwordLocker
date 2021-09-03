@@ -1,4 +1,4 @@
-class user:
+class User:
     '''
     generates new instances of password lock
     '''
