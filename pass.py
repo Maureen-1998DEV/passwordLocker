@@ -28,7 +28,7 @@ def main():
     print("welcome to PASSWORDLOCKER")
    
     while True:
-      print("Use these short codes:\n cnp-create newpasswordLockerAccount\nlg-login to passwordLocker\nex-exit")
+      print("Use these short codes:\n cc-create newpasswordLockerAccount\nlg-login to passwordLocker\nex-exit")
 
       short_code = input('Enter:').lower()
       if short_code =='cnp':
