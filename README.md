@@ -2,28 +2,28 @@
 # Desciption:
 ### This is an Application that let the user save his or her username and password in various Application they have signed up in.
 ## BDD
-The program lets a user register
-* Example input: username: maxwell password: kimutai
-* Example output: user: maxwell password: kimutai
+The program lets a user signup
+* Example input: username: Maureen password: 1234
+* Example output: user: Maureen password: 1234
 
 The program lets the user choose whether to add an account
-* Example input: add
-* Example output: Enter the account name, login and password
+* Example input: 1
+* Example output: Enter the Application name, username and password
 
 The program lets the user choose whether to display accounts but asks them to authenticate their account first
-* Example input: display
+* Example input: 2
 * Example output: Enter your username and password
 
 The program lets the user choose whether to find accounts
-* Example input: find
-* Example output: Enter the name of the account
+* Example input: 3
+* Example output: Enter the name of the Application
 
 The program lets the user choose whether to exit
-* Example input: exit
-* Example output: Thank you for using password locker
+* Example input: 4
+* Example output: Thank you...
 
 ## Prerequisites
-* Python
+* Python 3.8
 
 ## Setup/Installation Requirements
 * https://github.com/Maureen-1998DEV/passwordlocker
