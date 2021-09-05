@@ -68,7 +68,7 @@ class TestUser(unittest.TestCase):
     
     
     def test_display_all_users(self):
-        self.assertEqual(User.display_user(), User.user_lock)
+        self.assertEqual(User.display_users(), User.user_lock)
 
     def test_copy_username(self):
         self.new_user.save_user()
