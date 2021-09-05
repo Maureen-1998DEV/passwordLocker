@@ -1,66 +1,102 @@
 #!/usr/bin/env python3.8
-import pyperclip
 from user import User
-def create_user(software,username,password):
+from credential import Credential
 
-   new_user = User (software,username,password)
+def signup(usnm, paswrd):
+   """
+   function for new user
+   """
+   new_user = User(usnm,paswrd)
+   new_user.save_user()
 
-   return new_user
+def create_application(application,username, password):
 
-def save_users(user):
-   user.save_user()
+   """
+   function to add account 
+   """
+   new_credential = Credential(application,username,password)
+   return new_credential
 
-def find_user(software):
-  return User.find_by_software(software)
+def save_application(credential):
 
-def user_exist(software):
-   return User.user_exist(software)
+   Credential.save_credential(credential)
 
-def delete_user(user):
-    user.delete_user()
+def display_credential():
+   return Credential.display_credential()
 
-def display_users():
-   return User.display_users()
-
+def find_by_application(application):
+      return Credential.find_by_application(application)
 
 def main():
-    print(" PASSWORD LOCKER App\n")
-    print("welcome to PASSWORDLOCKER")
-   
-    while True:
-      print("Use these short codes:\n cc-create newpasswordLockerAccount\nlg-login to passwordLocker\nex-exit")
+   print("welcome to PASSWORDLOCKER.PLease Signup.")
+   user_login = input("Enter you username:")
+   password = input("Enter pasword:")
 
-      short_code = input('Enter:').lower()
-      if short_code =='cnp':
-         print('To create an Account:')
-         firstname= input()
-         print("Enter your firstName:")
-         secondName = input()
-         print("Enter your secondName:")
-         password = input()
-         print("Enter your password:")
-         print("\n")
-         print(firstname+secondName+password+"you have succesfully open Passwordlock account")
-         print("To save your software account password,Enter your credential:")
-         software =input("Enter your software name:")
-         username = input("Enter your username:")
-         password = input("Enter your password:")
-         save_users(User(software,username,password))
-   
-         if display_users():
-            print("all your saved software,password and username list")
-            print("\n")
-            user =User.display_users()
-            print(f"{user.software} {user.username}  {user.password}")
+   signup(user_login,password)
 
-         else:
-            print("you dont have an existing list")
+   while True:
+      print("Use these short codes:\n1 -add new application \n 2-list Application \n 3-find application \n 4-Exit")
+
+      menu=input("Enter").lower()
+
+      if menu=='1':
+        application =input("Enter your application name:")
+        username = input("Enter your username:")
+        password = input("Enter your password:") 
+
+        save_application(create_application(application,username,password)) 
+        print("your Apllication has been saved successfully")
+
+      elif menu =='2':
+         uname=input("Enter your Username:")
+         pword=input("Enter your password:")
+
+         for user in User.user_lock:
+            if user.username == uname:
+               if user.password == pword:
+                  if  display_credential():
+                     print("The list ou your saved Applications")
+                     print("\n")
+
+                     for application in display_credential():
+                        print(f"Application:{application.application}")
+                        print(f"username:{application.username}")
+                        print(f"Password:{application.password}")
+
+                     else:
+                        print("\n")
+                        print("You have not saved Any applications")
+
+            elif menu =='3':
+               print("\n")
+               App_name=input("Enter Your Application Name:")
+               if find_by_application(App_name):
+                  found_application= find_by_application(App_name)
+
+                  print(f"Application:{found_application.application}")
+                  print(f"Username:{found_application.username}")
+                  print(f"Password:{found_application.password}")
+
+            elif menu =='4':
+               print("Thank you!")
+
+            else:
+               print("\n")
+               print("Invalid choice...?")
+
+
+
+
+
+
+
+
+
 
 
 
       
 if __name__ == '__main__':
-   main()
-       
+    main()
 
 

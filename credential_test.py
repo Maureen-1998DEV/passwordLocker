@@ -30,7 +30,7 @@ class TestCredential(unittest.TestCase):
  def test_display_credential(self):
      self.assertEqual(Credential.display_credential(),Credential.credential_lists)
 
- def test_find_application(self):
+ def test_find_by_application(self):
      self.new_application.save_credential()
      test_application=Credential("Test","user","5465")
      test_application.save_credential()
