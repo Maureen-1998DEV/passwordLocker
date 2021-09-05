@@ -4,7 +4,7 @@ class User:
     '''
     user_lock = [] #empty passwordlocker
 
-    def __init__(self, software,username,password):
+    def __init__(self,username,password):
 
         self.username = username
         self.password = password
