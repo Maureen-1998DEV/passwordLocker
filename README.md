@@ -22,8 +22,6 @@ The program lets the user choose whether to exit
 * Example input: 4
 * Example output: Thank you...
 
-## Prerequisites
-* Python 3.8
 
 ## Setup/Installation Requirements
 * https://github.com/Maureen-1998DEV/passwordlocker
