@@ -1,7 +1,9 @@
 import unittest 
 from credential import Credential
 class TestCredential(unittest.TestCase):
-
+ '''
+ Test class that defines test cases credential class behaiour
+   Args'''
 
 
  def setUp(self):

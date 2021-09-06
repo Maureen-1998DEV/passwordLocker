@@ -1,6 +1,6 @@
 class User:
     '''
-    generates new instances of password lock
+    generates new instances of user
     '''
     user_lock = [] #empty passwordlocker
 
@@ -12,7 +12,8 @@ class User:
 
     def save_user(self):
         '''
-        save user password lock'''
+        save user password lock 
+        '''
         User.user_lock.append(self)
 
     
