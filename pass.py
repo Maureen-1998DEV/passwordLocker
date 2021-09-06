@@ -12,20 +12,29 @@ def signup(usnm, paswrd):
 def create_application(application,username, password):
 
    """
-   function to add account 
+   function to add application
    """
    new_credential = Credential(application,username,password)
    return new_credential
 
 def save_application(credential):
 
+   """
+   function to save new application
+   """
+
    Credential.save_credential(credential)
 
 def display_credential():
+   """
+   Function to display credential lists
+   """
    return Credential.display_credential()
 
 def find_by_application(application):
-      return Credential.find_by_application(application)
+   """
+   Function to find credential lists"""
+   return Credential.find_by_application(application)
 
 def main():
    print("welcome to PASSWORDLOCKER.PLease Signup.")
