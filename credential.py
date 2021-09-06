@@ -52,7 +52,6 @@ class Credential:
         '''
         method that generate passwords for the new application
         '''  
-        letters = string.ascii_letters
         password = ''.join((random.choice('abcdxyzpqr') for i in range(5)))
         return  (password)  
 
