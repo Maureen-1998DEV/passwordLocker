@@ -31,10 +31,16 @@ def display_credential():
    """
    return Credential.display_credential()
 
-def find_by_application(application):
+def find_application(application):
    """
    Function to find credential lists"""
    return Credential.find_by_application(application)
+
+def generate_by_password():
+ '''
+ function to generate password
+ '''
+ return Credential.generate_password(5)
 
 def main():
    print("welcome to PASSWORDLOCKER.PLease Signup.")
@@ -44,19 +50,37 @@ def main():
    signup(user_login,password)
 
    while True:
-      print("Use these short codes:\n1 -add new application \n 2-list Application \n 3-find application \n 4-Exit")
+      print("Use these short codes:\n1-add new application\n2-list Application\n3-find application\n4-Exit")
 
-      menu=input("Enter").lower()
+      menu=input("Enter:").lower()
 
       if menu=='1':
         application =input("Enter your application name:")
         username = input("Enter your username:")
-        password = input("Enter your password:") 
 
-        save_application(create_application(application,username,password)) 
-        print("your Apllication has been saved successfully")
 
-      elif menu =='2':
+        while True:
+           print("Allow us to generate a password for you(y/n)")
+           reply =input("Enter:").lower()
+           if reply == 'y':
+              password = generate_by_password()
+              print(f"New password is{password}")
+
+              break
+
+           elif reply =='n':
+               print("\n")
+               password=input("Enter a password:")
+
+               break
+
+           else:
+               print("\n")
+               print("invalid input")
+
+               save_application(create_application(application,username,password))
+
+      elif menu=='2':
          uname=input("Enter your Username:")
          pword=input("Enter your password:")
 
@@ -76,22 +100,29 @@ def main():
                         print("\n")
                         print("You have not saved Any applications")
 
-            elif menu =='3':
-               print("\n")
-               App_name=input("Enter Your Application Name:")
-               if find_by_application(App_name):
-                  found_application= find_by_application(App_name)
+      elif menu=='3':
+         print("\n")
+         App_name=input("Enter Your Application Name:")
 
-                  print(f"Application:{found_application.application}")
-                  print(f"Username:{found_application.username}")
-                  print(f"Password:{found_application.password}")
+         if find_application(App_name):
+          found_application= find_application(App_name)
 
-            elif menu =='4':
-               print("Thank you!")
 
-            else:
-               print("\n")
-               print("Invalid choice...?")
+
+
+          print("-"*10)
+          print(f"Application:{found_application.application}")
+          print(f"Username:{found_application.username}")
+          print(f"Password:{found_application.password}")
+
+      elif menu=='4':
+         print("\n")
+         print("Thank you for choosing passwordLocker!")
+         break
+
+      else:
+       print("\n")
+       print("Invalid choice...?")
 
 
 
