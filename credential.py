@@ -1,6 +1,4 @@
 import random
-import string
-from unittest import result
 class Credential:
 
     '''
@@ -35,7 +33,7 @@ class Credential:
         return cls.credential_lists
 
     @classmethod
-    def find_by_application (cls, application) :
+    def find_by_application (cls,application):
         '''
         method that whe you input an Application name it reurns all the Application with the name inputed
           
